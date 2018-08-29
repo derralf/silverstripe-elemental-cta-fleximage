@@ -1,0 +1,144 @@
+/* ==========================================================================
+   CETextCoverImageFlex
+   ========================================================================== */
+
+
+// some variables.
+// you may comment or change them when using this scss file in your workflow
+
+$brand-primary:         darken(#428bca, 6.5%) !default; // #337ab7
+$brand-success:         #5cb85c !default;
+$brand-info:            #5bc0de !default;
+$brand-warning:         #f0ad4e !default;
+$brand-danger:          #d9534f !default;
+
+$font-size-base:          14px !default;
+$line-height-base:        1.428571429 !default; // 20/14
+$line-height-computed:    floor(($font-size-base * $line-height-base)) !default; // ~20px
+
+$grid-gutter-width:         30px !default;
+
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+
+
+
+
+@mixin elementctafleximage_side-by-side-variant($background: $gray, $color: #FFF) {
+    background: $background;
+    &,
+    .inner,
+    .inner *,
+    .side-title h2 {
+        color: $color;
+    }
+    .btn {
+        color: $background;
+        border-color: $background;
+    }
+}
+
+
+
+/*!
+ * example color variants
+ * you may comment or change them when using this scss file in your workflow
+ */
+.derralf__elements__ctafleximage__element__elementctafleximage {
+    .side-by-side {
+        &.primary {
+            @include elementctafleximage_side-by-side-variant($brand-primary);
+        }
+        &.success {
+            @include elementctafleximage_side-by-side-variant($brand-success);
+        }
+        &.info {
+            @include elementctafleximage_side-by-side-variant($brand-info);
+        }
+        &.warning{
+            @include elementctafleximage_side-by-side-variant($brand-warning);
+        }
+        &.danger {
+            @include elementctafleximage_side-by-side-variant($brand-danger);
+        }
+    }
+}
+
+
+
+// general layout
+.derralf__elements__ctafleximage__element__elementctafleximage {
+    // mobile first: sides one below the other
+    .side-by-side {
+        display: flex;
+        box-direction: normal;
+        flex-direction: column;
+    }
+    // das "inner workings"
+    .side-by-side {
+        .side {
+            vertical-align: middle;
+            -webkit-box-flex: 1;
+            flex: 1;
+            &.cover-image {
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                // min-height: 200px;
+            }
+
+            .inner {
+                padding: $grid-gutter-width $grid-gutter-width ($grid-gutter-width - ($line-height-computed/2)) $grid-gutter-width;
+            }
+            .side-title {
+                margin-bottom: $line-height-computed;
+            }
+            .side-text {
+            }
+            .side-btn {
+                margin-top: $line-height-computed;
+                text-align: center;
+            }
+        }
+    }
+    // on small devices: image semitransparent behind the content
+    @media only screen and (max-width: $screen-sm-max) {
+        .side-by-side {
+            display: block;
+            position: relative;
+            .side {
+                &.cover-image {
+                    position : absolute;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0.2;
+                }
+                &.cont {
+                    position: relative;
+                    z-index: 2;
+                }
+            }
+
+        }
+    }
+    // on larger devices: Sides side by side
+    @media only screen and (min-width: $screen-md-min) {
+        .side-by-side {
+            box-direction: normal;
+            flex-direction: row;
+        }
+        .side-by-side .side.cover-image  {
+            // http://caniuse.com/#search=flex-direction
+            // In IE10 and IE11, containers with display: flex and flex-direction: column will not properly calculate their flexed childrens' sizes if the container has min-height but no explicit height property
+            height: auto;
+            min-height: 0;
+        }
+        &.image-right .side-by-side {
+            flex-direction: row-reverse;
+        }
+    }
+
+}
+
+

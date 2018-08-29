@@ -1,0 +1,27 @@
+## icon or elemental grid field
+SilverStripe\Admin\LeftAndMain:
+  extensions:
+    - Derralf\Elements\CtaFlexImage\Extensions\LeftAndMainExtension
+
+#---
+#Name: elementctafleximage
+#---
+## add default styles
+#DNADesign\Elemental\Controllers\ElementController:
+#  default_styles:
+#    - derralf/elemental-cta-fleximage:client/dist/styles/frontend-default.css
+
+## basic/default config
+#Derralf\Elements\CtaFlexImage\Element\ElementCtaFlexImage:
+#  styles:
+#    image-right: 'Image Right'
+#  styles_default_description: 'Standard: Image left'
+#  colors:
+#    primary: 'primary'
+#    success: 'success'
+#    info: 'info'
+#    warning: 'warning'
+#    danger: 'danger'
+#  readmore_link_class: 'btn btn-default btn-readmore'
+
+
