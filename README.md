@@ -18,7 +18,7 @@ Modify `/templates/Derralf/Elements/CtaFlexImage/Includes/Title.ss` to your need
 
 - Install the module via Composer
   ```
-  composer require derralf/silverstripe-elemental-textimages
+  composer require derralf/elemental-cta-fleximage
   ``` 
 
 ## Configuration
@@ -61,14 +61,14 @@ See Elemental Docs for [how to disable the default styles](https://github.com/dn
 You may add your own templates/styles like this:
 
 ```
-Derralf\Elements\TextImages\Element\ElementTextImages:
+Derralf\Elements\CtaFlexImage\Element\ElementCtaFlexImage:
   styles:
     MyCustomTemplate: "new customized special Layout"
 ```
 
-...and put a template named `ElementTextImages_MyCustomTemplate.ss`in `themes/{your_theme}/templates/Derralf/Elements/TextImages/Element/`  
+...and put a template named `ElementCtaFlexImage_MyCustomTemplate.ss`in `themes/{your_theme}/templates/Derralf/Elements/CtaFlexImage/Element/`  
 **and/or**
-add styles for `.derralf__elements__textimages__element__elementtextimages.mycustomtemplate` to your style sheet.  
+add styles for `.derralf__elements__ ctaflexmage__element__ ctafleximage.mycustomtemplate` to your style sheet.  
 
 Note: The left/right version is supplied via css (no separate template).
 
