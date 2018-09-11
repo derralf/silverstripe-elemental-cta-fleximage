@@ -25,7 +25,7 @@ $screen-sm-max:              ($screen-md-min - 1) !default;
 
 
 
-@mixin elementctafleximage_side-by-side-variant($background: $gray, $color: #FFF) {
+@mixin elementctafleximage_side-by-side-variant($background: $gray, $color: #FFF, $btn-bg: $color, $btn-color: $background) {
     background: $background;
     &,
     .inner,
@@ -34,8 +34,9 @@ $screen-sm-max:              ($screen-md-min - 1) !default;
         color: $color;
     }
     .btn {
-        color: $background;
-        border-color: $background;
+        color: $btn-color;
+        background: $btn-bg;
+        border-color: $btn-bg;
     }
 }
 
@@ -47,6 +48,8 @@ $screen-sm-max:              ($screen-md-min - 1) !default;
  */
 .derralf__elements__ctafleximage__element__elementctafleximage {
     .side-by-side {
+        // Color variants, uses Mixin above
+        // elementctafleximage_side-by-side-variant($background, $color, $btn-bg, $btn-color)
         &.primary {
             @include elementctafleximage_side-by-side-variant($brand-primary);
         }
